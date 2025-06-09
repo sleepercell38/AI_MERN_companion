@@ -15,8 +15,9 @@ import http from "http";
 const server = http.createServer(app);  //basically here we created the server and we passed the app.js into it   
 
 const io = new Server(server ,{
-  cors:{
-    origin: "*"
+   cors: {
+    origin: process.env.CLIENT_URL,
+    credentials: true, // if needed
   }
 });  //here we imported the server from the socket io and then created passed the server we created to the socket io server and stored it in the (io )conatant which we would use for further purpose
 
